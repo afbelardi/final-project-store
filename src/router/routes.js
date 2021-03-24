@@ -1,7 +1,7 @@
 import React from 'react';
-import Store from '../pages/Store';
+import App from '../pages/App';
 import About from '../pages/About';
-import About from '../pages/About';
+import Login from '../pages/Login';
 
 const routes = [
 	{
@@ -10,14 +10,14 @@ const routes = [
 		path: '/login'
 	},
 	{
-		Component: Store,
-		key: 'Store',
-		path: '/home'
-	},
-	{
 		Component: About,
 		key: 'About',
 		path: '/about'
+	},
+	{
+		Component: App,
+		key: 'App',
+		path: '/'
 	}
 ];
 
