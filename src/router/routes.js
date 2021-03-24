@@ -1,5 +1,5 @@
 import React from 'react';
-import App from '../pages/App';
+import Store from '../pages/Store';
 import About from '../pages/About';
 import Login from '../pages/Login';
 
@@ -15,8 +15,8 @@ const routes = [
 		path: '/about'
 	},
 	{
-		Component: App,
-		key: 'App',
+		Component: Store,
+		key: 'Store',
 		path: '/'
 	}
 ];

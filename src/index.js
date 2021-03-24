@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 import AppRouter from './router';
 import 'bootstrap/scss/bootstrap.scss';
 
-const app = document.getElementById('app');
+const store = document.getElementById('store');
 
-ReactDOM.render(<AppRouter />, app);
+ReactDOM.render(<AppRouter />, store);
