@@ -20,14 +20,12 @@ app.use(express.json());
 if (process.env.NODE_ENV !== 'development'){
   app.use(express.static('public'))
 }
+app.use(/\.[0-9a-z]+$/i, express.static('public'));
 
-/* Controller Goes Here Remove the tes*/
-app.get('/test', (req, res)=>{
-	res.status(200).json({
-		website: 'My Website',
-		info: 'Not that much'
-	})
-})
+/* Controller Goes Here Remove the test*/
+
+app.use('/api/photos', require('./controllers/photos'))
+
 /* Controller Ends here */
 //LISTENER
 

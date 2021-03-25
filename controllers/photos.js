@@ -21,7 +21,7 @@ photoRouter.post('/', async (req, res) => {
 
 //READ
 
-parkRouter.get('/', async (req, res) => {
+photoRouter.get('/', async (req, res) => {
     try {
         const foundPhotos = await Photo.find({})
 
