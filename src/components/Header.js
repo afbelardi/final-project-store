@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Store(props) {
 	const scrollDown = () => {
-		window.scrollBy(0, 300);
+		window.scrollBy(0, 600);
 	};
 
 	return (
@@ -14,12 +14,10 @@ export default function Store(props) {
 					alt="skylinemagic"
 					border="0"
 				/>
-				<div id="h1">
-					<h1>AFBELARDI</h1>
-				</div>
-				<div id="button">
-					<button onClick={scrollDown}>Store</button>
-				</div>
+				<h1 id="banner-title">AFBELARDI</h1>
+				<button id="button" onClick={scrollDown}>
+					Store
+				</button>
 			</div>
 		</div>
 	);

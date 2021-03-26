@@ -35,15 +35,23 @@ body {
     display: flex;
     
   }
+
+  #store-title {
+    text-align: center;
+    font-family: 'Bebas Neue';
+    font-size: 80px;
+    letter-spacing: 5px;
+    padding-top: 15px;
+    }
   .header {
     width: 100vw;
     height: 600px;
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
    
 
-    #h1 {
+    #banner-title {
       z-index: 1000;
       font-family: 'Bebas Neue';
       font-size: 50px;
@@ -52,6 +60,8 @@ body {
       margin-top: 20px;
       
     }
+
+   
     
 
     #button {
