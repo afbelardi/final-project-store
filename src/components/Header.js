@@ -15,9 +15,12 @@ export default function Store(props) {
 					border="0"
 				/>
 				<h1 id="banner-title">AFBELARDI</h1>
-				<button id="button" onClick={scrollDown}>
+				<button className="button" onClick={scrollDown}>
 					Store
 				</button>
+				<Link to={'/about'}>
+					<button className="button">About</button>
+				</Link>
 			</div>
 		</div>
 	);
