@@ -11,7 +11,6 @@ export default function Store(props) {
 			try {
 				const response = await fetch(`/api/photos`);
 				const data = await response.json();
-				console.log(data);
 				await setProducts(data);
 			} catch (err) {
 				console.error(err);
