@@ -9,7 +9,7 @@ export default function Products(props) {
 					? props.data.map(product => {
 							return (
 								// <div id="product-card">
-								<ul key={product.title}>
+								<ul>
 									<li key={product.image}>
 										<Link to={`/${product._id}`}>
 											<img className="product-image" src={product.image} />

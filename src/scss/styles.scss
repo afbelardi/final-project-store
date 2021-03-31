@@ -58,6 +58,10 @@ body {
     display: flex;
     justify-content: space-between;
    
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
 
     #banner-title {
       z-index: 1000;
@@ -97,6 +101,7 @@ body {
   margin-top: 75px;
   display: flex;
   overflow-x: auto;
+  // overflow-x: auto;
   // justify-content: space-between;
   // flex-grow: 1;
   // flex-wrap: wrap;
@@ -127,6 +132,7 @@ body {
   min-width: 100%;
   object-fit: cover;
   vertical-align: bottom;
+ 
 }
 
 ul {
