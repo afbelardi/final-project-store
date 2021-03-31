@@ -8,6 +8,7 @@ const cors = require('cors');
 const stripe = require('stripe')('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');
 const uuid = require('uuid/v4');
 
+
 const MONGODB_URI = process.env.MONGODB_URI
 const db = mongoose.connection;
 
@@ -30,31 +31,6 @@ app.use(/\.[0-9a-z]+$/i, express.static('public'));
 
 app.use('/api/photos', require('./controllers/photos'))
 
-app.post('/checkout', async (req, res) => {
-	console.log('Request:', req.body);
-
-	let error;
-	let status;
-
-	try {
-		const { product, token } = req.body;
-
-		const customer = await
-		stripe.customers.create({
-			email: token.email,
-			source: token.id
-		});
-
-		const idempotency_key = uuid();
-
-		const charge = await stripe.charges.create({
-			
-		})
-
-	}catch(error){
-
-	}
-})
 
 /* Controller Ends here */
 //LISTENER
