@@ -33,8 +33,10 @@ export default function Show(props) {
 			</div>
 			<div className="stripe-checkout">
 				<StripeCheckout
-					stripeKey="pk_live_51IaUxUBxAJS3ymB41mIEolPAupgR0xyCQW21dm090876fpjSh9iVOfV95UnX5jZk2fuRY96wqDhsEdHbZDpJif0z00Qxwgw0IA"
+					stripeKey="pk_test_51IaUxUBxAJS3ymB4uO2cKT0DJx92FJSZyzMfpAOk4iLI566gVGYZHIQ2EV83tkxwq16oD2NbQClcxZCrPHpL88fU00cZ8L3GR9"
 					token={handleToken}
+					billingAddress
+					shippingAddress
 				/>
 			</div>
 		</div>

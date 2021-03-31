@@ -4,6 +4,8 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const mongoose = require('mongoose');
 const path = require('path');
+const cors = require('cors');
+const stripe = require('stripe')
 
 const MONGODB_URI = process.env.MONGODB_URI
 const db = mongoose.connection;
@@ -17,6 +19,7 @@ db.on('open', () => {
 });
 /* Middleware */
 app.use(express.json());
+app.use(cors());
 if (process.env.NODE_ENV !== 'development'){
   app.use(express.static('public'))
 }
