@@ -170,7 +170,7 @@ a {
 
 
 .show-section {
-  height: 1000px;
+  height: 800px;
   display: flex;
 }
 
@@ -188,6 +188,11 @@ a {
   max-height: 700px;
   margin: 0 auto;
   padding-top: 20px;
+}
+
+.stripe-checkout {
+  height: 100px;
+  text-align: center;
 }
 
 

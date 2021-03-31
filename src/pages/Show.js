@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
+import StripeCheckout from 'react-stripe-checkout';
 
 export default function Show(props) {
 	const [showProduct, setShowProduct] = useState({});
@@ -17,6 +18,10 @@ export default function Show(props) {
 		})();
 	}, []);
 
+	const handleToken = (token, addresses) => {
+		console.log({ token, addresses });
+	};
+
 	return (
 		<div className="StorePage">
 			<div className="show-wrapper">
@@ -25,6 +30,12 @@ export default function Show(props) {
 			<h1 id="show-title">{showProduct.title}</h1>
 			<div className="show-section">
 				<img className="show-image" src={showProduct.image} />
+			</div>
+			<div className="stripe-checkout">
+				<StripeCheckout
+					stripeKey="pk_live_51IaUxUBxAJS3ymB41mIEolPAupgR0xyCQW21dm090876fpjSh9iVOfV95UnX5jZk2fuRY96wqDhsEdHbZDpJif0z00Qxwgw0IA"
+					token={handleToken}
+				/>
 			</div>
 		</div>
 	);
