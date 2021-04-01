@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
-import StripeCheckout from 'react-stripe-checkout';
-import { toast } from 'react-toastify';
-import axios from 'axios';
-
-toast.configure();
 
 export default function Show(props) {
 	const [showProduct, setShowProduct] = useState({});
@@ -22,22 +17,6 @@ export default function Show(props) {
 		})();
 	}, []);
 
-	const handleToken = async (token, addresses) => {
-		// console.log({ token, addresses });
-		const response = await axios.post('localhost:3000/checkout', {
-			token,
-			showProduct
-		});
-		const { status } = response.data;
-		if (status === 'success') {
-			toast('Success! Check email for details', { type: 'success ' });
-		} else {
-			toast('Something went wrong', {
-				type: 'error'
-			});
-		}
-	};
-
 	return (
 		<div className="StorePage">
 			<div className="show-wrapper">
@@ -47,7 +26,6 @@ export default function Show(props) {
 			<div className="show-section">
 				<img className="show-image" src={showProduct.image} />
 			</div>
-			<button role="link">Checkout</button>
 		</div>
 	);
 }
