@@ -15,11 +15,11 @@ export default function Store(props) {
 					border="0"
 				/>
 				<h1 id="banner-title">AFBELARDI</h1>
-				<button className="button" onClick={scrollDown}>
+				<button className="nav" onClick={scrollDown}>
 					Store
 				</button>
 				<Link to={'/about'}>
-					<button className="button">About</button>
+					<button className="nav">About</button>
 				</Link>
 			</div>
 		</div>

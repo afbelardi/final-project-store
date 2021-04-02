@@ -2,8 +2,9 @@ const { Schema, model } = require('mongoose');
 
 const photoSchema = new Schema({
     title: String,
-    price: String,
-    image: String
+    price: Number,
+    image: String,
+    size: String
 });
 
 

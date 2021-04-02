@@ -57,6 +57,7 @@
     "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.4.0",
     "@stripe/stripe-js": "^1.13.2",
     "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
