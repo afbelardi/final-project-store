@@ -1,101 +1,60 @@
 import React, { useState, useEffect } from 'react';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-export default function CheckoutForm() {
-	const [succeeded, setSucceeded] = useState(false);
-	const [error, setError] = useState(null);
-	const [processing, setProcessing] = useState('');
-	const [disabled, setDisabled] = useState(true);
-	const [clientSecret, setClientSecret] = useState('');
-	const stripe = useStripe();
-	const elements = useElements();
-	useEffect(() => {
-		// Create PaymentIntent as soon as the page loads
-		window
-			.fetch('/create-payment-intent', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({ items: [{ id: 'xl-tshirt' }] })
-			})
-			.then(res => {
-				return res.json();
-			})
-			.then(data => {
-				setClientSecret(data.clientSecret);
-			});
-	}, []);
-	const cardStyle = {
-		style: {
-			base: {
-				color: '#32325d',
-				fontFamily: 'Arial, sans-serif',
-				fontSmoothing: 'antialiased',
-				fontSize: '16px',
-				'::placeholder': {
-					color: '#32325d'
-				}
-			},
-			invalid: {
-				color: '#fa755a',
-				iconColor: '#fa755a'
-			}
-		}
-	};
-	const handleChange = async event => {
-		// Listen for changes in the CardElement
-		// and display any errors as the customer types their card details
-		setDisabled(event.empty);
-		setError(event.error ? event.error.message : '');
-	};
-	const handleSubmit = async ev => {
+import styled from '@emotion/styled';
+import axios from 'axios';
+
+import Row from './prebuilt/Row';
+import BillingDetailsFields from './prebuilt/BillingDetailsFields';
+import SubmitButton from './prebuilt/SubmitButton';
+import CheckoutError from './prebuilt/CheckoutError';
+
+import { CardElement } from '@stripe/react-stripe-js';
+
+const CardElementContainer = styled.div`
+	height: 40px;
+	display: flex;
+	align-items: center;
+	& .StripeElement {
+		width: 100%;
+		padding: 15px;
+	}
+`;
+
+export default function CheckOutForm(props) {
+	const [isProcessing, setProcessingTo] = useState(false);
+	const [checkoutError, setCheckoutError] = useState();
+	const [showProduct, setShowProduct] = useState({});
+
+	const handleFormSubmit = async ev => {
 		ev.preventDefault();
-		setProcessing(true);
-		const payload = await stripe.confirmCardPayment(clientSecret, {
-			payment_method: {
-				card: elements.getElement(CardElement)
+
+		const billingDetails = {
+			name: ev.target.name.value,
+			email: ev.target.email.value,
+			address: {
+				city: ev.target.city.value,
+				line1: ev.target.address.value,
+				state: ev.target.state.value,
+				postal_code: ev.target.zip.value
 			}
-		});
-		if (payload.error) {
-			setError(`Payment failed ${payload.error.message}`);
-			setProcessing(false);
-		} else {
-			setError(null);
-			setProcessing(false);
-			setSucceeded(true);
-		}
+		};
 	};
+
 	return (
-		<form id="payment-form" onSubmit={handleSubmit}>
-			<CardElement
-				id="card-element"
-				options={cardStyle}
-				onChange={handleChange}
-			/>
-			<button disabled={processing || disabled || succeeded} id="submit">
-				<span id="button-text">
-					{processing ? (
-						<div className="spinner" id="spinner"></div>
-					) : (
-						'Pay now'
-					)}
-				</span>
-			</button>
-			{/* Show any error that happens when processing the payment */}
-			{error && (
-				<div className="card-error" role="alert">
-					{error}
-				</div>
-			)}
-			{/* Show a success message upon completion */}
-			<p className={succeeded ? 'result-message' : 'result-message hidden'}>
-				Payment succeeded, see the result in your
-				<a href={`https://dashboard.stripe.com/test/payments`}>
-					{' '}
-					Stripe dashboard.
-				</a>{' '}
-				Refresh the page to pay again.
-			</p>
+		<form onSubmit={handleFormSubmit}>
+			<Row>
+				<BillingDetailsFields />
+			</Row>
+			<Row>
+				<CardElementContainer>
+					<CardElement />
+				</CardElementContainer>
+			</Row>
+			{checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
+			<Row>
+				<SubmitButton disabled={isProcessing}>
+					{isProcessing ? 'Processing...' : `Pay $${props.data.price}`}
+				</SubmitButton>
+			</Row>
 		</form>
 	);
 }
