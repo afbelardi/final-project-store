@@ -30,7 +30,7 @@ export default function Show(props) {
 				<img className="show-image" loading="lazy" src={showProduct.image} />
 			</div>
 			<h2 id="size">{showProduct.size}</h2>
-			<h3 id="price">{showProduct.price}</h3>
+			<h3 id="price">${showProduct.price}</h3>
 			<div id="checkout-form">
 				<CheckoutForm data={showProduct} />
 			</div>
