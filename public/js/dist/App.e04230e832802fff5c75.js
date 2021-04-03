@@ -164,7 +164,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return CheckOutForm; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @emotion/styled */ \"./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _prebuilt_Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./prebuilt/Row */ \"./src/components/prebuilt/Row.js\");\n/* harmony import */ var _prebuilt_BillingDetailsFields__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./prebuilt/BillingDetailsFields */ \"./src/components/prebuilt/BillingDetailsFields.js\");\n/* harmony import */ var _prebuilt_SubmitButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./prebuilt/SubmitButton */ \"./src/components/prebuilt/SubmitButton.js\");\n/* harmony import */ var _prebuilt_CheckoutError__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./prebuilt/CheckoutError */ \"./src/components/prebuilt/CheckoutError.js\");\n/* harmony import */ var _stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @stripe/react-stripe-js */ \"./node_modules/@stripe/react-stripe-js/dist/react-stripe.umd.js\");\n/* harmony import */ var _stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7__);\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\nfunction _templateObject() {\n  const data = _taggedTemplateLiteral([\"\\n\\theight: 40px;\\n\\tdisplay: flex;\\n\\talign-items: center;\\n\\t& .StripeElement {\\n\\t\\twidth: 100%;\\n\\t\\tpadding: 15px;\\n\\t}\\n\"]);\n\n  _templateObject = function _templateObject() {\n    return data;\n  };\n\n  return data;\n}\n\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\n\n\n\n\n\n\n\n\n\nconst CardElementContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_1__[/* default */ \"a\"].div(_templateObject());\nfunction CheckOutForm(props) {\n  const [isProcessing, setProcessingTo] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])(false);\n  const [checkoutError, setCheckoutError] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])();\n  const [showProduct, setShowProduct] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])({});\n\n  const handleFormSubmit = /*#__PURE__*/function () {\n    var _ref = _asyncToGenerator(function* (ev) {\n      ev.preventDefault();\n      const billingDetails = {\n        name: ev.target.name.value,\n        email: ev.target.email.value,\n        address: {\n          city: ev.target.city.value,\n          line1: ev.target.address.value,\n          state: ev.target.state.value,\n          postal_code: ev.target.zip.value\n        }\n      };\n    });\n\n    return function handleFormSubmit(_x) {\n      return _ref.apply(this, arguments);\n    };\n  }();\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"form\", {\n    onSubmit: handleFormSubmit\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_Row__WEBPACK_IMPORTED_MODULE_3__[/* default */ \"a\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_BillingDetailsFields__WEBPACK_IMPORTED_MODULE_4__[/* default */ \"a\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_Row__WEBPACK_IMPORTED_MODULE_3__[/* default */ \"a\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CardElementContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7__[\"CardElement\"], null))), checkoutError && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_CheckoutError__WEBPACK_IMPORTED_MODULE_6__[/* default */ \"a\"], null, checkoutError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_Row__WEBPACK_IMPORTED_MODULE_3__[/* default */ \"a\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_SubmitButton__WEBPACK_IMPORTED_MODULE_5__[/* default */ \"a\"], {\n    disabled: isProcessing\n  }, isProcessing ? 'Processing...' : \"Pay $\".concat(props.data.price))));\n}\n\n//# sourceURL=webpack:///./src/components/CheckOutForm.js?");
+eval("/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return CheckOutForm; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @emotion/styled */ \"./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _prebuilt_Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./prebuilt/Row */ \"./src/components/prebuilt/Row.js\");\n/* harmony import */ var _prebuilt_BillingDetailsFields__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./prebuilt/BillingDetailsFields */ \"./src/components/prebuilt/BillingDetailsFields.js\");\n/* harmony import */ var _prebuilt_SubmitButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./prebuilt/SubmitButton */ \"./src/components/prebuilt/SubmitButton.js\");\n/* harmony import */ var _prebuilt_CheckoutError__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./prebuilt/CheckoutError */ \"./src/components/prebuilt/CheckoutError.js\");\n/* harmony import */ var _stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @stripe/react-stripe-js */ \"./node_modules/@stripe/react-stripe-js/dist/react-stripe.umd.js\");\n/* harmony import */ var _stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7__);\n/* harmony import */ var stripe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! stripe */ \"./node_modules/stripe/lib/stripe.js\");\n/* harmony import */ var stripe__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(stripe__WEBPACK_IMPORTED_MODULE_8__);\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\nfunction _templateObject() {\n  const data = _taggedTemplateLiteral([\"\\n\\theight: 40px;\\n\\tdisplay: flex;\\n\\talign-items: center;\\n\\t& .StripeElement {\\n\\t\\twidth: 100%;\\n\\t\\tpadding: 15px;\\n\\t}\\n\"]);\n\n  _templateObject = function _templateObject() {\n    return data;\n  };\n\n  return data;\n}\n\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\n\n\n\n\n\n\n\n\n\n\nconst CardElementContainer = _emotion_styled__WEBPACK_IMPORTED_MODULE_1__[/* default */ \"a\"].div(_templateObject());\nfunction CheckOutForm(props, _ref) {\n  let {\n    onSuccessfulCheckout\n  } = _ref;\n  const [isProcessing, setProcessingTo] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])(false);\n  const [checkoutError, setCheckoutError] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])();\n  const [showProduct, setShowProduct] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])({});\n  const stripe = Object(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7__[\"useStripe\"])();\n  const elements = Object(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7__[\"useElements\"])();\n\n  const handleCardDetailsChange = event => {\n    event.error ? setCheckoutError(event.error.message) : setCheckoutError();\n  };\n\n  const handleFormSubmit = /*#__PURE__*/function () {\n    var _ref2 = _asyncToGenerator(function* (ev) {\n      ev.preventDefault();\n      const billingDetails = {\n        name: ev.target.name.value,\n        email: ev.target.email.value,\n        address: {\n          city: ev.target.city.value,\n          line1: ev.target.address.value,\n          state: ev.target.state.value,\n          postal_code: ev.target.zip.value\n        }\n      };\n    });\n\n    return function handleFormSubmit(_x) {\n      return _ref2.apply(this, arguments);\n    };\n  }();\n\n  setProcessingTo(true);\n  console.log(clientSecret);\n  const cardElement = elements.getElement(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7__[\"CardElement\"]);\n\n  /*#__PURE__*/\n  _asyncToGenerator(function* () {\n    try {\n      const {\n        data: clientSecret\n      } = yield axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/payment_intents', {\n        amount: price * 100\n      });\n      const paymentMethodReq = yield stripe.createPaymentMethod({\n        type: 'card',\n        card: cardElement,\n        billing_details: billingDetails\n      });\n\n      if (paymentMethodReq.error) {\n        setCheckoutError(paymentMethodReq.error.message);\n        setProcessingTo(false);\n        return;\n      }\n\n      const {\n        error\n      } = yield stripe.confirmCardPayment(clientSecret, {\n        payment_method: paymentMethodReq.paymentMethod.id\n      });\n\n      if (error) {\n        setCheckoutError(error.message);\n        setProcessingTo(false);\n        return;\n      }\n\n      onSuccessfulCheckout();\n    } catch (err) {\n      setCheckoutError(err.message);\n    }\n  }); //CREATE PAYMENT INTENT ON SERVER\n  // client_secret of payment\n  //need reference to the cardElement\n  //need stripe.js\n  //create payment method\n\n\n  const cardElementOptions = {\n    style: {\n      base: {\n        fontSize: '16px',\n        color: '#fff',\n        '::placeholder': {\n          color: '#87bbfd'\n        }\n      },\n      invalid: {\n        color: '#FFC7EE',\n        iconColor: '#FFC7EE'\n      }\n    }\n  };\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"form\", {\n    onSubmit: handleFormSubmit\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_Row__WEBPACK_IMPORTED_MODULE_3__[/* default */ \"a\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_BillingDetailsFields__WEBPACK_IMPORTED_MODULE_4__[/* default */ \"a\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_Row__WEBPACK_IMPORTED_MODULE_3__[/* default */ \"a\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CardElementContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_7__[\"CardElement\"], {\n    options: cardElementOptions\n  }))), checkoutError && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_CheckoutError__WEBPACK_IMPORTED_MODULE_6__[/* default */ \"a\"], null, checkoutError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_Row__WEBPACK_IMPORTED_MODULE_3__[/* default */ \"a\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_prebuilt_SubmitButton__WEBPACK_IMPORTED_MODULE_5__[/* default */ \"a\"], {\n    disabled: isProcessing\n  }, isProcessing ? 'Processing...' : \"Pay $\".concat(props.data.price))));\n}\n\n//# sourceURL=webpack:///./src/components/CheckOutForm.js?");
 
 /***/ }),
 
@@ -357,6 +357,174 @@ eval("/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_re
 
 "use strict";
 eval("/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _pages_Store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/Store */ \"./src/pages/Store.js\");\n/* harmony import */ var _pages_About__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/About */ \"./src/pages/About.js\");\n/* harmony import */ var _pages_Show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Show */ \"./src/pages/Show.js\");\n\n\n\n\nconst routes = [{\n  Component: _pages_About__WEBPACK_IMPORTED_MODULE_2__[/* default */ \"a\"],\n  key: 'About',\n  path: '/about'\n}, {\n  Component: _pages_Show__WEBPACK_IMPORTED_MODULE_3__[/* default */ \"a\"],\n  key: 'Show',\n  path: '/:id'\n}, {\n  Component: _pages_Store__WEBPACK_IMPORTED_MODULE_1__[/* default */ \"a\"],\n  key: 'Store',\n  path: '/'\n}];\n/* harmony default export */ __webpack_exports__[\"a\"] = (routes);\n\n//# sourceURL=webpack:///./src/router/routes.js?");
+
+/***/ }),
+
+/***/ 0:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///util_(ignored)?");
+
+/***/ }),
+
+/***/ 1:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///util_(ignored)?");
+
+/***/ }),
+
+/***/ 10:
+/*!************************!*\
+  !*** buffer (ignored) ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///buffer_(ignored)?");
+
+/***/ }),
+
+/***/ 11:
+/*!************************!*\
+  !*** buffer (ignored) ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///buffer_(ignored)?");
+
+/***/ }),
+
+/***/ 12:
+/*!************************!*\
+  !*** buffer (ignored) ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///buffer_(ignored)?");
+
+/***/ }),
+
+/***/ 13:
+/*!************************!*\
+  !*** buffer (ignored) ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///buffer_(ignored)?");
+
+/***/ }),
+
+/***/ 2:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///util_(ignored)?");
+
+/***/ }),
+
+/***/ 3:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///util_(ignored)?");
+
+/***/ }),
+
+/***/ 4:
+/*!************************!*\
+  !*** buffer (ignored) ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///buffer_(ignored)?");
+
+/***/ }),
+
+/***/ 5:
+/*!************************!*\
+  !*** buffer (ignored) ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///buffer_(ignored)?");
+
+/***/ }),
+
+/***/ 6:
+/*!************************!*\
+  !*** crypto (ignored) ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///crypto_(ignored)?");
+
+/***/ }),
+
+/***/ 7:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///util_(ignored)?");
+
+/***/ }),
+
+/***/ 8:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///util_(ignored)?");
+
+/***/ }),
+
+/***/ 9:
+/*!************************!*\
+  !*** buffer (ignored) ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///buffer_(ignored)?");
 
 /***/ })
 

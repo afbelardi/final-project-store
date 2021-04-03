@@ -7,7 +7,8 @@ import BillingDetailsFields from './prebuilt/BillingDetailsFields';
 import SubmitButton from './prebuilt/SubmitButton';
 import CheckoutError from './prebuilt/CheckoutError';
 
-import { CardElement } from '@stripe/react-stripe-js';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import Stripe from 'stripe';
 
 const CardElementContainer = styled.div`
 	height: 40px;
@@ -19,10 +20,17 @@ const CardElementContainer = styled.div`
 	}
 `;
 
-export default function CheckOutForm(props) {
+export default function CheckOutForm(props, { onSuccessfulCheckout }) {
 	const [isProcessing, setProcessingTo] = useState(false);
 	const [checkoutError, setCheckoutError] = useState();
 	const [showProduct, setShowProduct] = useState({});
+
+	const stripe = useStripe();
+	const elements = useElements();
+
+	const handleCardDetailsChange = event => {
+		event.error ? setCheckoutError(event.error.message) : setCheckoutError();
+	};
 
 	const handleFormSubmit = async ev => {
 		ev.preventDefault();
@@ -39,6 +47,69 @@ export default function CheckOutForm(props) {
 		};
 	};
 
+	setProcessingTo(true);
+
+	console.log(clientSecret);
+
+	const cardElement = elements.getElement(CardElement);
+
+	async () => {
+		try {
+			const { data: clientSecret } = await axios.post('/api/payment_intents', {
+				amount: price * 100
+			});
+
+			const paymentMethodReq = await stripe.createPaymentMethod({
+				type: 'card',
+				card: cardElement,
+				billing_details: billingDetails
+			});
+
+			if (paymentMethodReq.error) {
+				setCheckoutError(paymentMethodReq.error.message);
+				setProcessingTo(false);
+				return;
+			}
+
+			const { error } = await stripe.confirmCardPayment(clientSecret, {
+				payment_method: paymentMethodReq.paymentMethod.id
+			});
+
+			if (error) {
+				setCheckoutError(error.message);
+				setProcessingTo(false);
+				return;
+			}
+
+			onSuccessfulCheckout();
+		} catch (err) {
+			setCheckoutError(err.message);
+		}
+	};
+
+	//CREATE PAYMENT INTENT ON SERVER
+	// client_secret of payment
+
+	//need reference to the cardElement
+	//need stripe.js
+	//create payment method
+
+	const cardElementOptions = {
+		style: {
+			base: {
+				fontSize: '16px',
+				color: '#fff',
+				'::placeholder': {
+					color: '#87bbfd'
+				}
+			},
+			invalid: {
+				color: '#FFC7EE',
+				iconColor: '#FFC7EE'
+			}
+		}
+	};
+
 	return (
 		<form onSubmit={handleFormSubmit}>
 			<Row>
@@ -46,7 +117,7 @@ export default function CheckOutForm(props) {
 			</Row>
 			<Row>
 				<CardElementContainer>
-					<CardElement />
+					<CardElement options={cardElementOptions} />
 				</CardElementContainer>
 			</Row>
 			{checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}

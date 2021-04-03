@@ -35,13 +35,7 @@ app.use('/api/photos', require('./controllers/photos'))
 /* Controller Ends here */
 //LISTENER
 
-const calculateOrderAmount = items => {
-	// Replace this constant with a calculation of the order's amount
-	// Calculate the order total on the server to prevent
-	// people from directly manipulating the amount on the client
-	return 1400;
-  };
-  app.post("/create-payment-intent", async (req, res) => {
+app.post("/create-payment-intent", async (req, res) => {
 	const { items } = req.body;
 	// Create a PaymentIntent with the order amount and currency
 	const paymentIntent = await stripe.paymentIntents.create({
@@ -52,6 +46,8 @@ const calculateOrderAmount = items => {
 	  clientSecret: paymentIntent.client_secret
 	});
   });
+  
+
 
 
 // for react router
