@@ -5,8 +5,8 @@ const PORT = process.env.PORT || 8000;
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
-const stripe = require('stripe')('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');
-const uuid = require('uuid/v4');
+
+
 
 
 const MONGODB_URI = process.env.MONGODB_URI
@@ -34,19 +34,35 @@ app.use('/api/photos', require('./controllers/photos'))
 
 /* Controller Ends here */
 //LISTENER
+const stripe = require('stripe')('sk_test_51IaUxUBxAJS3ymB4qCsu55W5Os34yfQYH1P7o3SaxLTTJ22KCkr2THZmzICwGNlb5QtAcWnvkTF1SA1gwNq6Vtp400MZuJZhcQ')
 
-app.post("/create-payment-intent", async (req, res) => {
-	const { items } = req.body;
-	// Create a PaymentIntent with the order amount and currency
-	const paymentIntent = await stripe.paymentIntents.create({
-	  amount: calculateOrderAmount(items),
-	  currency: "usd"
-	});
-	res.send({
-	  clientSecret: paymentIntent.client_secret
-	});
+
+app.post('/create-checkout-session', async (req, res) => {
+  const price = parseFloat(req.body.price) * 100
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+	shipping_address_collection: {
+		allowed_countries: ['US', 'CA'],
+	  },
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'T-shirt',
+          },
+          unit_amount: price,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: 'http://localhost:3000/success',
+    cancel_url: 'https://localhost:3000/cancel.html',
   });
-  
+
+  res.json({ id: session.id });
+});
 
 
 

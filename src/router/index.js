@@ -10,8 +10,8 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const AppRouter = () => {
 	return (
-		<Elements stripe={stripePromise}>
-			<Router>
+		<Router>
+			<Elements stripe={stripePromise}>
 				{/* <NavBar routes={routes} /> */}
 				<Switch>
 					{routes.map(({ Component, key, path }) => (
@@ -22,8 +22,8 @@ const AppRouter = () => {
 						></Route>
 					))}
 				</Switch>
-			</Router>
-		</Elements>
+			</Elements>
+		</Router>
 	);
 };
 

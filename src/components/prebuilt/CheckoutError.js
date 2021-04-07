@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/core';
 import React from 'react';
+import styled from '@emotion/styled';
+import { jsx, keyframes } from '@emotion/react';
 
 const fade = keyframes`
   from {

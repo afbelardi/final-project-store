@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Products from '../components/Products';
 
-import styled from '@emotion/styled';
-import GlobalStyles from '../components/prebuilt/GlobalStyles';
+// import GlobalStyles from '../components/prebuilt/GlobalStyles';
 
 export default function Store(props) {
 	const [products, setProducts] = useState([]);
+
+	// const PUBLISHABLE_KEY = process.env.REACT_APP_PUBLISHABLE_KEY;
 
 	useEffect(() => {
 		(async () => {
@@ -15,6 +16,7 @@ export default function Store(props) {
 				const response = await fetch(`/api/photos`);
 				const data = await response.json();
 				await setProducts(data);
+				// console.log(PUBLISHABLE_KEY);
 			} catch (err) {
 				console.error(err);
 			}
