@@ -36,7 +36,8 @@ export default function Show(props) {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				price: showProduct.price
+				price: showProduct.price,
+				title: showProduct.title
 			})
 		});
 

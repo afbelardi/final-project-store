@@ -15,9 +15,9 @@ export default function Store(props) {
 					border="0"
 				/>
 				<h1 id="banner-title">AFBELARDI</h1>
-				<button className="nav" onClick={scrollDown}>
-					Store
-				</button>
+				<Link to={'/'}>
+					<button className="nav">Store</button>
+				</Link>
 				<Link to={'/about'}>
 					<button className="nav">About</button>
 				</Link>
