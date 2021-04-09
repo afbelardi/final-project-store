@@ -38,7 +38,8 @@ export default function Show(props) {
 			body: JSON.stringify({
 				price: showProduct.price,
 				title: showProduct.title,
-				image: showProduct.image
+				image: showProduct.image,
+				id: showProduct._id
 			})
 		});
 

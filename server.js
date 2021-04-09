@@ -41,6 +41,7 @@ app.post('/create-checkout-session', async (req, res) => {
   const price = parseFloat(req.body.price) * 100
   const title = req.body.title;
   const image = req.body.image;
+  
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     
@@ -63,7 +64,7 @@ app.post('/create-checkout-session', async (req, res) => {
     ],
     mode: 'payment',
     success_url: 'http://localhost:3000/success',
-    cancel_url: 'https://localhost:3000/cancel.html',
+    cancel_url: 'http://localhost:3000/',
   });
 
   res.json({ id: session.id });
