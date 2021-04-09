@@ -4,6 +4,10 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const mongoose = require('mongoose');
 const path = require('path');
+const cors = require('cors');
+
+
+
 
 const MONGODB_URI = process.env.MONGODB_URI
 const db = mongoose.connection;
@@ -17,19 +21,54 @@ db.on('open', () => {
 });
 /* Middleware */
 app.use(express.json());
+app.use(cors());
 if (process.env.NODE_ENV !== 'development'){
   app.use(express.static('public'))
 }
+app.use(/\.[0-9a-z]+$/i, express.static('public'));
 
-/* Controller Goes Here Remove the tes*/
-app.get('/test', (req, res)=>{
-	res.status(200).json({
-		website: 'My Website',
-		info: 'Not that much'
-	})
-})
+/* Controller Goes Here Remove the test*/
+
+app.use('/api/photos', require('./controllers/photos'))
+
+
 /* Controller Ends here */
 //LISTENER
+const stripe = require('stripe')('sk_test_51IaUxUBxAJS3ymB4qCsu55W5Os34yfQYH1P7o3SaxLTTJ22KCkr2THZmzICwGNlb5QtAcWnvkTF1SA1gwNq6Vtp400MZuJZhcQ')
+
+
+app.post('/create-checkout-session', async (req, res) => {
+  const price = parseFloat(req.body.price) * 100
+  const title = req.body.title;
+  const image = req.body.image;
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    
+	shipping_address_collection: {
+		allowed_countries: ['US', 'CA'],
+	  },
+
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: title, 
+            images: [image]
+          },
+          unit_amount: price,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: 'http://localhost:3000/success',
+    cancel_url: 'https://localhost:3000/cancel.html',
+  });
+
+  res.json({ id: session.id });
+});
+
 
 
 // for react router

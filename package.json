@@ -8,7 +8,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp build && gulp styles",
+    "build": "gulp styles",
     "dev:webpack": "webpack --mode development --env.NODE_ENV=dev",
     "build:webpack": "webpack --mode production --env.NODE_ENV=production",
     "dev": "gulp",
@@ -30,7 +30,7 @@
     "axios": "^0.21.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.4",
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.14",
     "clean-webpack-plugin": "^0.1.19",
     "cors": "^2.8.5",
     "css-loader": "^1.0.1",
@@ -57,10 +57,21 @@
     "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
+    "@stripe/react-stripe-js": "^1.4.0",
+    "@stripe/stripe-js": "^1.13.2",
     "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "mongoose": "^5.10.2",
-    "react-router-dom": "^5.2.0"
+    "next": "^10.1.3",
+    "react-confetti": "^6.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-stripe-checkout": "^2.6.3",
+    "react-toastify": "^7.0.3",
+    "stripe": "^8.140.0"
   }
 }
