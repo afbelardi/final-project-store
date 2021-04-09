@@ -39,18 +39,22 @@ const stripe = require('stripe')('sk_test_51IaUxUBxAJS3ymB4qCsu55W5Os34yfQYH1P7o
 
 app.post('/create-checkout-session', async (req, res) => {
   const price = parseFloat(req.body.price) * 100
-  const title = req.body.title
+  const title = req.body.title;
+  const image = req.body.image;
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
+    
 	shipping_address_collection: {
 		allowed_countries: ['US', 'CA'],
 	  },
+
     line_items: [
       {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: title,
+            name: title, 
+            images: [image]
           },
           unit_amount: price,
         },

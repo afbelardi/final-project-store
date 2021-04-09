@@ -1,11 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Store(props) {
-	const scrollDown = () => {
-		window.scrollBy(0, 600);
-	};
-
 	return (
 		<div className="header-container">
 			<div className="header">
@@ -15,12 +11,15 @@ export default function Store(props) {
 					border="0"
 				/>
 				<h1 id="banner-title">AFBELARDI</h1>
-				<Link to={'/'}>
-					<button className="nav">Store</button>
-				</Link>
-				<Link to={'/about'}>
-					<button className="nav">About</button>
-				</Link>
+				<div id="store-button-div">
+					<NavLink
+						className="store-link"
+						to={'/'}
+						style={{ textDecoration: 'none' }}
+					>
+						<h2 id="store-button">Store</h2>
+					</NavLink>
+				</div>
 			</div>
 		</div>
 	);
