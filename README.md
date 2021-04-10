@@ -6,11 +6,6 @@
 
 ## Concept:
 
-
-
-
-## Concept:
-
 This site is a combination of portfolio/webstore of some of my favorite photos that I've taken throughout my 10 years of using a camera. The user has the ability to scroll through the photos, click on each individually to reveal the title and price and then check out using a secure Stripe payment method. 
 
 ## Technologies Used
