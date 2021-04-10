@@ -1,68 +1,64 @@
-# Big Poppa Code React Starter Kit
-This Starter Kit is being created for New Web Developers that want to get started with react
+# App Title: AFBELARDI Photo Store
 
-Most people use a CLI Tool like Vue-Cli or Create React App and no idea what these things are doing
+### App Demo:
 
-The goal of this is for it to be a tool that let's you learn JS at a new level because you have access to
-everything under the hood and no opinionated set up
+---
 
-I will base all my tutorials on this Starter Kit.
-
-# Who Am I?
-
-![arthurbernierjr.com](http://progressandfortune.com/smac_images/profile.jpg)
-
-I am Arthur Bernier Jr. I work as freelance fullstack web developer and attraction marketing consultant specializing in supporting e-commerce brands,
-subscription box sites, social activists, religious/non-profit leaders and creative entrepreneurs(i.e. barbers, artists, musicians, stylists, models and photographers).
-I have a passion for helping entrepreneurs reach their perfect audience and helping you communicate to that audience in a way that makes them know, like and trust you. I also am a Full-Time Instructor at General Assembly as well as a Software Engineer at Blavity Inc.
+## Concept:
 
 
-# My Favorite Online Instructors
 
-[__Colt Steele__](https://www.youtube.com/channel/UCrqAGUPPMOdo0jfQ6grikZw)
 
-[__Brad Traversy__](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
+## Concept:
 
-[__Jose Santos Garcia__](https://www.youtube.com/channel/UC46wWUso9H5KPQcoL9iE3Ug)
+This site is a combination of portfolio/webstore of some of my favorite photos that I've taken throughout my 10 years of using a camera. The user has the ability to scroll through the photos, click on each individually to reveal the title and price and then check out using a secure Stripe payment method. 
 
-[__Stephen Grider__](https://www.youtube.com/channel/UCQCaS3atWyNHEy5PkDXdpNg/)
+## Technologies Used
 
-## Steps
+* MongoDB
+* Mongoose
+* Express 
+* React
+* Node.js
+* React
+* JSX
 
-**Install Gulp Globally**
-```bash
-npm i -g gulp-cli
-```
 
-**Start the dev server**
-```bash
-npm run dev
-```
-### or
-```bash
-yarn dev
-```
+#### Credits:
 
-**Start the dev server with proxy**
-```bash
-npm run proxy
-```
+https://stripe.com/docs
 
-**Build files for production**
-```bash
-yarn build
-```
-### or
 
-```bash
-npm run build
-```
+### Wireframe
 
-**Deploy for production script**
-```bash
-npm start
-```
-### or
-```bash
-yarn start
-```
+
+
+#### User Stories
+
+Upon landing at the store page, the user will see a header image with my store title as well as a store button. Upon scrolling down, the user will see a side-scrolling row of images. After clicking on an individual image, the user is directed to a page with a larger resolution version of the image with the title, size of print and price. At the bottom of the page there is a checkout button which redirects to Stripe's API to complete the checkout. Once a user successfully checks out, they are redirected to a success page.
+
+### Development Plan
+
+* Development Plan One: Create a display a header component at the top of each page
+* Development Plan Two: Create the row of images sized equally so they all line up properly
+* Development Plan Three: Create the show page with all needed relevant information
+* Development Plan Four: Integrate Stripe API so the user can successfully check out
+
+
+### MVP
+
+* MVP One: A full working stack with Node.js, MongoDB/Mongoose, Express and React
+* MVP Two: Use React Router to handle page changes
+* MVP Three: Integrating Stripe API for the checkout process
+* MVP Four: A README.md to explain the application
+
+### Stretch Goals
+
+* Add a shopping cart feature so that users can buy multiple products at the same time
+* Add a contact page with a form that sends email directly to my email address
+* Allow the customer to choose from multiple different sizes of prints
+
+
+### Challenges
+
+The main huge challenge I faced while creating this application was Stripe integration. I found that there are many different ways to implement Stripe payments and spent a couple of days trying to add it in various ways. I was finally able to overcome the challenge by directing the customer to a stripe pre-built checkout page.
