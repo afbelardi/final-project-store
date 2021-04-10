@@ -66,7 +66,7 @@ body {
       letter-spacing: 5px;
       margin-top: 20px;
       text-align: center;
-      padding-left: 80px;
+      padding-left: 170px;
     
       
     }
@@ -88,6 +88,24 @@ body {
       position: relative;
       margin-top: 30px;
       margin-right: 50px;
+    }
+
+    #about-button-div {
+      z-index: 2000;
+      height: 30px;
+      max-width: 50px;
+      position: relative;
+      margin-top: 30px;
+      margin-right: 25px;
+    }
+
+    #about-button {
+      color: white;
+      font-family: 'Bebas Neue';
+      z-index: 2000;
+      font-size: 25px;
+
+
     }
 
 
@@ -369,4 +387,46 @@ button:disabled {
   font-family: 'Bebas Neue';
   text-align: center;
   padding-top: 100px;
+}
+
+.about-wrapper {
+  width: 100vw;
+  height: 700px;
+  display: table;
+  background-color: black;
+
+}
+
+#about-photo {
+  position: absolute;
+  left: 0px;
+  width: 50%;
+  height: 600px;
+  
+
+  img {
+    height: 600px;
+    width: 450px;
+    margin-top: 75px;
+    margin-left: 100px;
+  }
+}
+
+#about-text {
+  position: absolute;
+  right: 0px;
+  width: 50%;
+
+ 
+  
+
+  h4 {
+    color: white;
+    font-family: 'Bebas Neue';
+    font-size: 25px;
+    line-height: 40px;
+    margin-top: 130px;
+    width: 500px;
+    
+  }
 }
