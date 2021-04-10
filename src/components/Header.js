@@ -12,12 +12,13 @@ export default function Store(props) {
 				/>
 				<h1 id="banner-title">AFBELARDI</h1>
 				<div id="store-button-div">
-					<NavLink
-						className="store-link"
-						to={'/'}
-						style={{ textDecoration: 'none' }}
-					>
+					<NavLink to={'/'} style={{ textDecoration: 'none' }}>
 						<h2 id="store-button">Store</h2>
+					</NavLink>
+				</div>
+				<div id="about-button-div">
+					<NavLink to={'/about'} style={{ textDecoration: 'none' }}>
+						<h2 id="about-button">About</h2>
 					</NavLink>
 				</div>
 			</div>
