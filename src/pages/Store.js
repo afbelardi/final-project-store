@@ -8,7 +8,6 @@ import Products from '../components/Products';
 export default function Store(props) {
 	const [products, setProducts] = useState([]);
 
-	// const PUBLISHABLE_KEY = process.env.REACT_APP_PUBLISHABLE_KEY;
 
 	useEffect(() => {
 		(async () => {
